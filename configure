@@ -4452,7 +4452,7 @@ find_things_extern(){
 
 find_filters_extern(){
     file=$source_path/$1
-    sed -n 's/^extern const FFFilter ff_[avfsinkrc]\{2,5\}_\([[:alnum:]_]\{1,\}\);/\1_filter/p' $file
+    sed -n 's/^extern const \(FFFilter\|AVFilter\) ff_[avfsinkrc]\{2,5\}_\([[:alnum:]_]\{1,\}\);/\2_filter/p' $file
 }
 
 FILTER_LIST=$(find_filters_extern libavfilter/allfilters.c)
